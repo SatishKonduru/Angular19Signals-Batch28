@@ -5,8 +5,24 @@
   <button class="nothing-btn" (click)="doNothing()" > Do Nothing</button>
 
 </div> -->
-
+<!--
 <div class="container">
   <h2>Counter value: {{counter$ | async}}</h2>
   <h2>{{randomNumber()}}</h2>
+</div> -->
+
+
+<div class="container">
+  <h2>Color Red: {{(colors$ | async).r}}</h2>
+  <h2>Color Green: {{(colors$ | async).g}}</h2>
+  <h2>Color Blue: {{(colors$ | async).b}}</h2>
+
+  <h3>Color Key : {{colorKey$ | async}}</h3>
+
+  <h2>Selected Color Value: {{selectedValue$ | async}}</h2>
+  <h2>Selected Color Value: {{colorObj[key]}}</h2>
+
+  <h3>Selected New Color: {{selectedValue$ | async}}</h3>
+  <button (click)="newColor()">Click me</button>
 </div>
+
