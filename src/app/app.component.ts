@@ -48,7 +48,6 @@ export class AppComponent {
     colorKey$ = new BehaviorSubject('g')
 
     selectedValue$ = combineLatest([this.colors$, this.colorKey$]).pipe(
-
       map(([color, key]) => color[key])
     )
 
