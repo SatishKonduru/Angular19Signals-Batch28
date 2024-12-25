@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BehaviorSubject, combineLatest, interval, map } from 'rxjs';
+
+import { BehaviorSubject, combineLatest, debounceTime, interval, map, withLatestFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,55 +12,78 @@ import { BehaviorSubject, combineLatest, interval, map } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  // title = 'Angular19Signals';
-  // changeDetector = inject(ChangeDetectorRef)
+  // // title = 'Angular19Signals';
+  // // changeDetector = inject(ChangeDetectorRef)
 
-  // counter = 0;
-  // constructor(){
-  //   setInterval(() => {
-  //     this.counter++
-  //     this.changeDetector.detectChanges()
-  //     console.log("Counter: ", this.counter)
-  //   }, 1000 )
+  // // counter = 0;
+  // // constructor(){
+  // //   setInterval(() => {
+  // //     this.counter++
+  // //     this.changeDetector.detectChanges()
+  // //     console.log("Counter: ", this.counter)
+  // //   }, 1000 )
 
 
-  //   // setInterval(() => {
-  //   //   this.changeDetector.detectChanges()
-  //   // }, 1000)
-  // }
+  // //   // setInterval(() => {
+  // //   //   this.changeDetector.detectChanges()
+  // //   // }, 1000)
+  // // }
 
-  // doNothing(){
-  //   console.log("Do Nothing....")
-  // }
+  // // doNothing(){
+  // //   console.log("Do Nothing....")
+  // // }
 
-  // randomNumber(){
-  //   console.log("Random Number Called...")
-  //   return 100;
-  // }
+  // // randomNumber(){
+  // //   console.log("Random Number Called...")
+  // //   return 100;
+  // // }
 
-  // counter$ = interval(1000)
-  // constructor(){}
-  // randomNumber(){
-  //   console.log("Random Number Called....")
-  //   return 100;
-  // }
+  // // counter$ = interval(1000)
+  // // constructor(){}
+  // // randomNumber(){
+  // //   console.log("Random Number Called....")
+  // //   return 100;
+  // // }
 
-    colors$ = new BehaviorSubject<any>({r: 'Red', g: 'Green', b: 'Blue'})
-    colorKey$ = new BehaviorSubject('g')
+  //   colors$ = new BehaviorSubject<any>({r: 'Red', g: 'Green', b: 'Blue'})
+  //   colorKey$ = new BehaviorSubject('g')
 
-    selectedValue$ = combineLatest([this.colors$, this.colorKey$]).pipe(
-      map(([color, key]) => color[key])
-    )
+  //   // selectedValue$ = combineLatest([this.colors$, this.colorKey$]).pipe(
+  //   //   map(([color, key]) => color[key])
+  //   // )
+  //   // selectedValue$ = combineLatest([this.colors$, this.colorKey$]).pipe(
+  //   //   debounceTime(1000),
+  //   //   map(([color, key]) => color[key])
+  //   // )
 
-    colorObj = {r: 'Red', g: 'Green', b: 'Blue'}
-    key = 'g'
+  //   selectedValue$ = this.colorKey$.pipe(
+  //     withLatestFrom(this.colors$),
+  //     map(([key,color ]) => color[key])
+  //   )
 
-    constructor(){
-      this.selectedValue$.subscribe(console.log)
-    }
 
-    newColor(){
-      this.colors$.next({y: 'Yellow', o: 'Orange', p: 'Purple'})
-      this.colorKey$.next('p')
-    }
+  //   colorObj = {r: 'Red', g: 'Green', b: 'Blue'}
+  //   key = 'g'
+
+  //   constructor(){
+  //     this.selectedValue$.subscribe(console.log)
+  //   }
+
+  //   newColor(){
+  //     this.colors$.next({y: 'Yellow', o: 'Orange', p: 'Purple'})
+  //     this.colorKey$.next('y')
+  //   }
+
+  readonly firstSignal = signal(100)
+  constructor(){
+    console.log("First Signal : ", this.firstSignal())
+  }
+  setSignal(){
+    this.firstSignal.set(777)
+  }
+  updateSignal(){
+    this.firstSignal.update(value => value + 1)
+  }
+
+  readonly derivedSignal = computed(() => this.firstSignal() * 2)
 }
