@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { BehaviorSubject, combineLatest, debounceTime, interval, map, withLatestFrom } from 'rxjs';
@@ -75,15 +75,27 @@ export class AppComponent {
   //   }
 
   readonly firstSignal = signal(100)
-  constructor(){
-    console.log("First Signal : ", this.firstSignal())
+    constructor(){
+     effect(() => {
+        console.log("First Signal : ", this.firstSignal())
+        // this.firstSignal.update(v => v + 10)
+       // localStorage.setItem('Signal', this.firstSignal().toString())
+     })
+
   }
+
   setSignal(){
     this.firstSignal.set(777)
+
   }
   updateSignal(){
     this.firstSignal.update(value => value + 1)
+
   }
 
   readonly derivedSignal = computed(() => this.firstSignal() * 2)
+  readonly x = signal(10)
+  readonly y = signal(20)
+
+  readonly newSignal = computed(() => this.x() + this.y())
 }
