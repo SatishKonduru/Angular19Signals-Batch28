@@ -25,11 +25,15 @@
   <h3>Selected New Color: {{selectedValue$ | async}}</h3>
   <button class="nothing-btn" (click)="newColor()">Click me</button>
 </div> -->
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <h4>My First Signal value: {{firstSignal()}}</h4>
   <h4>Derived Signal(Computed) : {{derivedSignal()}}</h4>
   <h4>New Signal(adding two Signals) : {{newSignal()}}</h4>
 
   <button class="nothing-btn" (click)="setSignal()">Set Signal</button>
   <button class="nothing-btn" (click)="updateSignal()">Update Signal</button>
+</div> -->
+
+<div class="container mt-5">
+  <app-without-signals></app-without-signals>
 </div>

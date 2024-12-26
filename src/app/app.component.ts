@@ -3,10 +3,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect
 import { RouterOutlet } from '@angular/router';
 
 import { BehaviorSubject, combineLatest, debounceTime, interval, map, withLatestFrom } from 'rxjs';
+import { WithoutSignalsComponent } from "./components/without-signals/without-signals.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, WithoutSignalsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -74,28 +75,30 @@ export class AppComponent {
   //     this.colorKey$.next('y')
   //   }
 
-  readonly firstSignal = signal(100)
-    constructor(){
-     effect(() => {
-        console.log("First Signal : ", this.firstSignal())
-        // this.firstSignal.update(v => v + 10)
-       // localStorage.setItem('Signal', this.firstSignal().toString())
-     })
+  // readonly firstSignal = signal(100)
+  //   constructor(){
+  //    effect(() => {
+  //     // this.firstSignal()
+  //     this.firstSignal.update(v => v + 10)
+  //     // console.log("First Signal : ", this.firstSignal())
 
-  }
+  //      // localStorage.setItem('Signal', this.firstSignal().toString())
+  //    })
 
-  setSignal(){
-    this.firstSignal.set(777)
+  // }
 
-  }
-  updateSignal(){
-    this.firstSignal.update(value => value + 1)
+  // setSignal(){
+  //   this.firstSignal.set(777)
 
-  }
+  // }
+  // updateSignal(){
+  //   this.firstSignal.update(value => value + 1)
 
-  readonly derivedSignal = computed(() => this.firstSignal() * 2)
-  readonly x = signal(10)
-  readonly y = signal(20)
+  // }
 
-  readonly newSignal = computed(() => this.x() + this.y())
+  // readonly derivedSignal = computed(() => this.firstSignal() * 2)
+  // readonly x = signal(10)
+  // readonly y = signal(20)
+
+  // readonly newSignal = computed(() => this.x() + this.y())
 }
