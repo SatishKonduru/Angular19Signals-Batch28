@@ -1,1 +1,19 @@
-<p>with-signals works!</p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Course Names with Signal
+    </div>
+    <div class="card-body">
+      @for(course of courseNames(); track course){
+        <div>
+          {{course.name}}
+        </div>
+      }
+    </div>
+  </div>
+</div>
+<section class="btn-section">
+  <button mat-raised-button (click)="addCourse()">Add Course</button>
+  <button mat-raised-button (click)="removeCourse()">Remove Course</button>
+</section>
+

@@ -1,5 +1,10 @@
 .container{
   display: flex;
   justify-content: center;
-  padding: 50px 80px;
+  padding: 10px 80px;
+}
+.btn-section{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
