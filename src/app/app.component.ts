@@ -5,10 +5,11 @@ import { RouterOutlet } from '@angular/router';
 import { BehaviorSubject, combineLatest, debounceTime, interval, map, withLatestFrom } from 'rxjs';
 import { WithoutSignalsComponent } from "./components/without-signals/without-signals.component";
 import { WithSignalsComponent } from "./components/with-signals/with-signals.component";
+import { LinkedSignalComponent } from "./components/linked-signal/linked-signal.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, WithSignalsComponent],
+  imports: [CommonModule, LinkedSignalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
