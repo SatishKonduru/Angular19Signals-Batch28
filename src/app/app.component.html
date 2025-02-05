@@ -11,13 +11,12 @@
   <h2>{{randomNumber()}}</h2>
 </div> -->
 
-
- <!--<div class="container">
+<!--<div class="container">
    <h2>Color Red: {{(colors$ | async).r}}</h2>
   <h2>Color Green: {{(colors$ | async).g}}</h2>
   <h2>Color Blue: {{(colors$ | async).b}}</h2> -->
 
-  <!-- <h3>Color Key : {{colorKey$ | async}}</h3>
+<!-- <h3>Color Key : {{colorKey$ | async}}</h3>
 
   <h2>Selected Color Value: {{selectedValue$ | async}}</h2>
   <h2>Selected Color Value: {{colorObj[key]}}</h2>
@@ -33,9 +32,18 @@
   <button class="nothing-btn" (click)="setSignal()">Set Signal</button>
   <button class="nothing-btn" (click)="updateSignal()">Update Signal</button>
 </div> -->
-
+<!-- <app-without-signals></app-without-signals> -->
+<!-- <app-with-signals></app-with-signals> -->
+<!-- <app-linked-signal></app-linked-signal> -->
 <div class="container mt-2">
-  <!-- <app-without-signals></app-without-signals> -->
-   <!-- <app-with-signals></app-with-signals> -->
-    <app-linked-signal></app-linked-signal>
+  <div class="tgl-button">
+    <button mat-raised-button (click)="toggleCounter()">
+      Start / Stop Counter
+    </button>
+  </div>
+  @if(showCounter){
+  <app-counter></app-counter>
+  } @else {
+  <h6>Counter Stopped</h6>
+  }
 </div>
