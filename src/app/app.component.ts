@@ -23,10 +23,16 @@ import { WithoutSignalsComponent } from './components/without-signals/without-si
 import { WithSignalsComponent } from './components/with-signals/with-signals.component';
 import { LinkedSignalComponent } from './components/linked-signal/linked-signal.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { CounterWithSignalsComponent } from './components/counter-with-signals/counter-with-signals.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, CounterComponent, MatButtonModule],
+  imports: [
+    CommonModule,
+    CounterComponent,
+    MatButtonModule,
+    CounterWithSignalsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
