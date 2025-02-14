@@ -24,15 +24,11 @@ import { WithSignalsComponent } from './components/with-signals/with-signals.com
 import { LinkedSignalComponent } from './components/linked-signal/linked-signal.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { CounterWithSignalsComponent } from './components/counter-with-signals/counter-with-signals.component';
+import { ReactiveContextWithEffectComponent } from './components/reactive-context-with-effect/reactive-context-with-effect.component';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    CommonModule,
-    CounterComponent,
-    MatButtonModule,
-    CounterWithSignalsComponent,
-  ],
+  imports: [CommonModule, MatButtonModule, ReactiveContextWithEffectComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
