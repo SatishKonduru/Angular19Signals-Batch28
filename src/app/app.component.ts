@@ -25,10 +25,12 @@ import { LinkedSignalComponent } from './components/linked-signal/linked-signal.
 import { CounterComponent } from './components/counter/counter.component';
 import { CounterWithSignalsComponent } from './components/counter-with-signals/counter-with-signals.component';
 import { ReactiveContextWithEffectComponent } from './components/reactive-context-with-effect/reactive-context-with-effect.component';
+import { RxjsToSignalsComponent } from './components/rxjs-to-signals/rxjs-to-signals.component';
+import { SignalToRxjsComponent } from './components/signal-to-rxjs/signal-to-rxjs.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, MatButtonModule, ReactiveContextWithEffectComponent],
+  imports: [CommonModule, MatButtonModule, SignalToRxjsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

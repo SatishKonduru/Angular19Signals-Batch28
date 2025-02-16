@@ -1,0 +1,10 @@
+<mat-chip>Signal to RxJS Observable</mat-chip>
+<div class="container mt-3">
+  <input
+    type="text"
+    [value]="searchQuery()"
+    (input)="searchQuery.set($event.target.value)"
+  />
+
+  <h3>Text Entered for Search: {{ textForSearch }}</h3>
+</div>
