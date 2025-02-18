@@ -28,10 +28,23 @@ import { ReactiveContextWithEffectComponent } from './components/reactive-contex
 import { RxjsToSignalsComponent } from './components/rxjs-to-signals/rxjs-to-signals.component';
 import { SignalToRxjsComponent } from './components/signal-to-rxjs/signal-to-rxjs.component';
 import { SignalImmutablityComponent } from './components/signal-immutablity/signal-immutablity.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { InputComponent } from './components/input/input.component';
+import { OutputComponent } from './components/output/output.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, MatButtonModule, SignalImmutablityComponent],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    InputComponent,
+    OutputComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -105,8 +118,12 @@ export class AppComponent {
   // readonly y = signal(20)
   // readonly newSignal = computed(() => this.x() + this.y())
 
-  showCounter = false;
-  toggleCounter() {
-    this.showCounter = !this.showCounter;
-  }
+  // showCounter = false;
+  // toggleCounter() {
+  //   this.showCounter = !this.showCounter;
+  // }
+
+  firstValue: number;
+  secondValue: number;
+  msg: any;
 }

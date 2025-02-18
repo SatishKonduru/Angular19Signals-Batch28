@@ -50,5 +50,25 @@
 </div> -->
 
 <div class="container">
-  <app-signal-immutablity></app-signal-immutablity>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter First Value: </mat-label>
+      <input matInput [(ngModel)]="firstValue" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Second Value: </mat-label>
+      <input matInput [(ngModel)]="secondValue" />
+    </mat-form-field>
+  </div>
+  <div>
+    <app-input [fValue]="firstValue" [sValue]="secondValue"></app-input>
+  </div>
+
+  <div class="container mt-5">
+    App Component:
+    <h4>{{ msg }}</h4>
+    <app-output (message)="msg = $event"></app-output>
+  </div>
 </div>
