@@ -117,13 +117,13 @@ export class AppComponent {
   // readonly x = signal(10)
   // readonly y = signal(20)
   // readonly newSignal = computed(() => this.x() + this.y())
-
   // showCounter = false;
   // toggleCounter() {
   //   this.showCounter = !this.showCounter;
   // }
-
-  firstValue: number;
-  secondValue: number;
-  msg: any;
+  // firstValue: number;
+  // secondValue: number;
+  // msg: any;
+  // username: string = '';
+  username = signal('');
 }

@@ -49,7 +49,7 @@
   }
 </div> -->
 
-<div class="container">
+<!-- <div class="container">
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Enter First Value: </mat-label>
@@ -71,4 +71,14 @@
     <h4>{{ msg }}</h4>
     <app-output (message)="msg = $event"></app-output>
   </div>
+</div> -->
+
+<div class="container">
+  <!-- <input [(ngModel)]="username" /> -->
+  <input
+    type="text"
+    [value]="username()"
+    (input)="username.set($event.target.value)"
+  />
+  <h2>Hello, {{ username() }}</h2>
 </div>
